@@ -1,0 +1,188 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 
+    "hero today"
+    "progress timeline"
+    "question actions";
+  gap: 24px;
+}
+
+.dashboard__hero {
+  grid-area: hero;
+  margin-bottom: 24px;
+}
+
+.dashboard__progress {
+  grid-area: progress;
+}
+
+.dashboard__timeline {
+  grid-area: timeline;
+}
+
+.dashboard__question {
+  grid-area: question;
+}
+
+.dashboard__actions {
+  grid-area: actions;
+}
+
+.today-progress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.today-progress__item {
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.timeline__item {
+  position: relative;
+  /* Additional styles rely on study-block */
+}
+
+.timeline__connector {
+  position: absolute;
+  left: 32px;
+  top: 24px;
+  bottom: -40px;
+  width: 2px;
+  background-color: var(--border-subtle);
+  z-index: 0;
+}
+
+.timeline__item:last-child .timeline__connector {
+  display: none;
+}
+
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roadmap__phase {
+  position: relative;
+  padding-left: 24px;
+}
+
+.roadmap__marker {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.roadmap__line {
+  position: absolute;
+  left: 5px;
+  top: 16px;
+  bottom: -24px;
+  width: 2px;
+  background-color: var(--border-subtle);
+}
+
+.roadmap__phase:last-child .roadmap__line {
+  display: none;
+}
+
+.weekly-score {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.weekly-score__value {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.weekly-score__breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.reflection-card {
+  /* Styled using base card classes, specific dashboard tweaks here */
+}
+
+.subject-progress-card {
+  margin-bottom: 16px;
+}
+
+.subject-progress-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.subject-progress-card__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.essay-stages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.essay-stages::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--border-subtle);
+  z-index: 0;
+}
+
+.essay-stage {
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-subtle);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.essay-stage--active {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: var(--bg-card-active);
+  box-shadow: var(--shadow-glow);
+}
+
+.essay-stage--complete {
+  border-color: var(--accent-primary);
+  background-color: var(--accent-primary);
+  color: white;
+}

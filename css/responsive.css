@@ -1,0 +1,154 @@
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 24px 32px;
+  }
+  
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "hero"
+      "today"
+      "progress"
+      "timeline"
+      "question"
+      "actions";
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: var(--sidebar-collapsed);
+  }
+  
+  .sidebar__nav-item span {
+    display: none;
+  }
+
+  .sidebar__logo span {
+    display: none;
+  }
+
+  .sidebar__footer {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__topic {
+    font-size: 1.5rem;
+  }
+
+  .page__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  body.sidebar-open .sidebar {
+    transform: translateX(0);
+    width: 260px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .today-progress {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .today-progress {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline__connector {
+    display: none;
+  }
+
+  .study-block {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Sidebar collapsed state class for JS toggling */
+body.sidebar-collapsed .sidebar {
+  width: var(--sidebar-collapsed);
+}
+
+body.sidebar-collapsed .sidebar__nav-item span,
+body.sidebar-collapsed .sidebar__logo span,
+body.sidebar-collapsed .sidebar__footer {
+  display: none;
+}
+
+body.sidebar-collapsed .main-content {
+  margin-left: var(--sidebar-collapsed);
+  width: calc(100% - var(--sidebar-collapsed));
+}
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    background: white;
+  }
+}
